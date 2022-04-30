@@ -11,7 +11,8 @@ const { NotImplementedError } = require('../extensions/index.js');
  *
  */
 function encodeLine(str) {
-  var match = str.match(/(.)\1*/g);
+  if(str.length==0) return str;
+  let match = str.match(/(.)\1*/g);
   let arr = match.map(function(s) {
     return s.length==1?s.charAt(0):s.length + s.charAt(0);
   });
